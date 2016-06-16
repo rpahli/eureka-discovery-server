@@ -17,7 +17,7 @@ apply plugin: 'eclipse'
 apply plugin: 'spring-boot' 
 
 jar {
-	baseName = 'movex-discovery-server'
+	baseName = 'eureka-discovery-server'
 	version = '0.0.1-SNAPSHOT'
 }
 
@@ -49,6 +49,13 @@ dependencyManagement {
 	}
 }
 
+processResources {
+    filesMatching('**/*.properties'){
+        expand(project.properties)
+    }
+
+    //exclude('log4j2.xml')
+}
 
 eclipse {
 	classpath {
